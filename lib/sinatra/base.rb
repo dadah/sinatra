@@ -50,7 +50,7 @@ module Sinatra
     end
 
     def idempotent?
-      safe? or put? or delete? or link? or unlink?
+      safe? or put? or delete? or link? or unlink? or connect?
     end
 
     def link?
@@ -59,6 +59,10 @@ module Sinatra
 
     def unlink?
       request_method == "UNLINK"
+    end
+
+    def connect?
+      request_method == "CONNECT"
     end
 
     private

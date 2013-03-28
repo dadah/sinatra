@@ -26,6 +26,8 @@ class ReadmeTest < Test::Unit::TestCase
         link('/') { ".. affiliate something .." }
 
         unlink('/') { ".. separate something .." }
+
+        connect('/') { ".. separate something .." }
       end
 
       get '/'
@@ -51,6 +53,10 @@ class ReadmeTest < Test::Unit::TestCase
 
       unlink '/'
       assert_body '.. separate something ..'
+
+      connect '/'
+      assert_body '.. separate something ..'
+
     end
 
     example do

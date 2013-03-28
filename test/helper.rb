@@ -105,6 +105,10 @@ class Test::Unit::TestCase
     request(uri, env.merge(:method => "UNLINK", :params => params), &block)
   end
 
+  def connect(uri, params = {}, env = {}, &block)
+    request(uri, env.merge(:method => "CONNECT", :params => params), &block)
+  end
+
   # Delegate other missing methods to response.
   def method_missing(name, *args, &block)
     if response && response.respond_to?(name)
