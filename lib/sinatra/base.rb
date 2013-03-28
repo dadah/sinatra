@@ -1384,6 +1384,7 @@ module Sinatra
       def patch(path, opts = {}, &bk)   route 'PATCH',   path, opts, &bk end
       def link(path, opts = {}, &bk)    route 'LINK',    path, opts, &bk end
       def unlink(path, opts = {}, &bk)  route 'UNLINK',  path, opts, &bk end
+      def connect(path, opts = {}, &bk)  route 'CONNECT',  path, opts, &bk end
 
       private
 
@@ -1927,7 +1928,7 @@ module Sinatra
       end
     end
 
-    delegate :get, :patch, :put, :post, :delete, :head, :options, :link, :unlink,
+    delegate :get, :patch, :put, :post, :delete, :head, :options, :link, :unlink, :connect,
              :template, :layout, :before, :after, :error, :not_found, :configure,
              :set, :mime_type, :enable, :disable, :use, :development?, :test?,
              :production?, :helpers, :settings, :register
